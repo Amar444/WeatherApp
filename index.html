@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
 	<script src="lib/angular/angular.min.js"></script>
+	<script src="js/key.js"></script>
 	<script src="js/controllers.js"></script>
 	<script src="js/app.js"></script>
 </head>
@@ -19,15 +20,19 @@
 			</div>
 		</div>
 
-		<div id="content">
+		<div id="content" ng-controller="WeatherController as weather">
 			<div class="in_container">
 				<form class="form-wrapper cf">
-					<input type="text" placeholder="Search here..." required>
+					<input type="text" placeholder="Search here..." ng-model="search">
 					<button type="submit">Search</button>
 				</form>
 
 				<div class="weather">
+					<h2>Weather in your city</h2>
+					<li class="list-group-item" ng-repeat='data in weather.information'>
+						{{data}}
 					
+					</li>
 				</div>
 			</div>
 		</div>

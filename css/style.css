@@ -5,8 +5,8 @@ body { padding:0; margin:0; background:#fbfbfb;}
 #header {
 	width:100%;
 	height:50px;
-	background:#1d8ffa;
-	border-bottom:1px solid #1a7fdf;
+	background:#cde6fa;
+	border-bottom:1px solid #4c9fdf;
 
 	-webkit-border-bottom-right-radius: 2px;
 	-webkit-border-bottom-left-radius: 2px;
@@ -33,7 +33,9 @@ body { padding:0; margin:0; background:#fbfbfb;}
 	height: 48px;
 	width:100%;
 	margin-top: -3em;
-	background:#1d8ffa;
+	background:#cde6fa;
+
+    border-top:1px solid #4c9fdf;
 
 	-webkit-border-top-left-radius: 2px;
 	-webkit-border-top-right-radius: 2px;
@@ -47,7 +49,7 @@ body { padding:0; margin:0; background:#fbfbfb;}
 	margin:0;
 	padding-top:5px;
 	font: bold 30px 'lucida sans', 'trebuchet MS', 'Tahoma';
-	color:#fff;
+	color:#4c9fdf;
 }
 
 .weather {
@@ -87,8 +89,7 @@ body { padding:0; margin:0; background:#fbfbfb;}
     width: 450px;
     padding: 15px;
     margin: 30px auto 50px auto;
-    background: #444;
-    background: rgba(0,0,0,.2);
+    background: #cde6fa;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
