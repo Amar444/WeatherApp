@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
 	<script src="lib/angular/angular.min.js"></script>
+	<script src="js/classie.js"></script>
 	<script src="js/key.js"></script>
 	<script src="js/controllers.js"></script>
 	<script src="js/app.js"></script>
@@ -22,17 +23,26 @@
 
 		<div id="content" ng-controller="WeatherController as weather">
 			<div class="in_container">
-				<form class="form-wrapper cf">
-					<input type="text" placeholder="Search here..." ng-model="search">
-					<button type="submit">Search</button>
-				</form>
+				<div class="searchfield">
+					<span class="input input--hideo">
+						<input class="input__field input__field--hideo" type="text" id="input-41" ng-model="search"/>
+						<label class="input__label input__label--hideo" for="input-41">
+							<img src="img/search-icon-orange-md.png" width="25px" height="25px">
+							<span class="input__label-content input__label-content--hideo">Search...</span>
+						</label>
+					</span>
+				</div>
 
 				<div class="weather">
-					<h2>Weather in your city</h2>
-					<li class="list-group-item" ng-repeat='data in weather.information'>
-						{{data}}
-					
-					</li>
+					<h2>Weather in your city</h2> 
+					City: {{weather.information.name}} <br>
+					Current temp: {{weather.information.main.temp - 273.15}} &#8451; <br>
+					<ul>
+						<li class="list-group-item" ng-repeat='(key, value) in weather.information'>
+							{{key}} - {{value}}
+						
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
