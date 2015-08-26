@@ -1,15 +1,11 @@
-var app = angular.module('myApp', []);
+angular.module('WeatherApp', ['WeatherApp.controllers','ngOpenWeatherMap'])
 
-app.controller('WeatherController', [ '$http', function($http){
-	var weather = this;
-	weather.information = [];
+	.config(['owmProvider', function(owmProvider) {
+	    owmProvider
+	        .setApiKey('f8f22a684bfaeb15657fe944e81c45a8')
+	        .useMetric()
+	        .setLanguage('nl');
+	}])
 
-	//paste the next line in key.js:
-	//var key = '4P1 K3Y H3R3'
-	var city_id = '2755204';
-	var link = 'http://api.openweathermap.org/data/2.5/weather?id='+ city_id +'&APPID=' + key;
-	
-	$http.get(link).success(function(data){
-		weather.information = data;
-	});
-} ]);
+
+;
