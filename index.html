@@ -12,33 +12,14 @@
 	<script src="js/app.js"></script>
 </head>
 <body>
-	<div id="container">
-		<div id="header">
-			<div class="in_container">
-				<span class="logo">
-					<h1>CyWeatherApp</h1>
-				</span>
-			</div>
-		</div>
+	<div id="container" ng-controller="weatherCtrl">
 
-		<div id="content" ng-controller="weatherCtrl">
-			<div class="in_container">
+		<div class="sidebar">
+			<h2>Weather in {{now.name}}</h2> 
+			Current temp: {{now.main.temp}} &#8451; <br>
 
-				<div class="weather">
-					<h2>Weather in your city</h2> 
-					City: {{now.name}} <br>
-					Current temp: {{now.main.temp}} &#8451; <br>
-
-					icon: <img ng-src="img/weather-icons/{{now.weather[0].icon}}.png">
-					<owm-icon id="{{condition.id}}"></owm-icon>
-
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="footer">
-		<div class="in_container">
-			Footer
+			icon: <img ng-src="img/weather-icons/{{now.weather[0].icon}}.png">
+			<owm-icon id="{{condition.id}}"></owm-icon>
 		</div>
 	</div>
 
