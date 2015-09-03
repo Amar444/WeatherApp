@@ -20,10 +20,37 @@ body {
 	border:1px solid rgba(25, 23, 81, 0.15);
 }
 
+
+/******************************/
+/********** CURRENT **********/
+/****************************/
 .container-current {
-	margin-top:250px;
+	margin-top:100px;
 }
 
+.current_temp {
+	font-size:100px;
+	font-weight: 300;
+}
+.current_weather_icon {
+	font-size:120px;
+}
+.weather_beschrijving {
+    font-size:30px;
+    font-weight: 300;
+}
+.weather_beschrijving:first-letter {
+	text-transform: uppercase;
+}
+
+
+
+
+
+
+/******************************/
+/********** FORECAST *********/
+/****************************/
 .container-forecast {
 	margin-top:20px;
 }
