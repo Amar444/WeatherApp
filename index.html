@@ -3,24 +3,42 @@
 <head>
 	<title>CyWeatherApp</title>
 
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,600italic,400italic,300italic,700,700italic,800italic,800' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/weather-icons.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 
+	<script src="lib/jquery.min.js"></script>
 	<script src="lib/angular/angular.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	<script src="js/ng-openweathermap.js"></script>
+
 	<script src="js/controllers.js"></script>
 	<script src="js/app.js"></script>
 </head>
 <body> 
-	<div id="container" ng-controller="weatherCtrl">
+	<div class="container" ng-controller="weatherCtrl">
 
-		<div class="sidebar">
-			<h2>Weather in {{now.name}}</h2> 
-			Current temp: {{now.main.temp}} &#8451; <br>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 container-current background-blur ">
+				<h1>Weather in {{now.name}}</h1> 
+				Current temp: {{now.main.temp}} &#8451; <br>
 
-			icon:  <img ng-src="img/weather-icons/{{now.weather[0].icon}}.png">
-			<owm-icon id="{{condition.id}}"></owm-icon>
+				icon:  <img ng-src="img/weather-icons/{{now.weather[0].icon}}.png">
+				<owm-icon id="{{condition.id}}"></owm-icon>
+			</div>
 		</div>
+
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 container-forecast background-blur ">
+				<h1>Weather in {{now.name}}</h1> 
+				Current temp: {{now.main.temp}} &#8451; <br>
+
+				icon:  <img ng-src="img/weather-icons/{{now.weather[0].icon}}.png">
+				<owm-icon id="{{condition.id}}"></owm-icon>
+			</div>
+		</div>
+
 	</div>
 </body>
 </html>

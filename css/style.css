@@ -1,17 +1,29 @@
-html, body { 
-    height: 100%; 
-    padding:0;
-    margin:0; 
+body { 
+	background: url("../img/background.jpg") no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
+	margin:0; 
+	font-family: 'Open Sans', sans-serif;
+	color:#000;
 }
 
-/* Todo:  Lettertype, achtergrond */
-
-.sidebar {
-	min-height:300px;
-	margin-left:auto;
-	margin-right:auto;
+.background-blur {
+	background: url("../img/background-blurred.jpg") no-repeat;
+	background-attachment: fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	border:1px solid rgba(25, 23, 81, 0.15);
 }
 
-.sidebar h2 {
-    color:#f37d27;
+.container-current {
+	margin-top:250px;
+}
+
+.container-forecast {
+	margin-top:20px;
 }
