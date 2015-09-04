@@ -29,72 +29,64 @@
 				</div>
 
 				<div class="row">
+					<!-- Huidige temp -->
 					<div class="col-md-6 current_temp ">
 						{{now.main.temp | number:1}}&deg; 
 					</div>
 
+					<!-- Grote icon-->
 					<div class="col-md-3 col-md-offset-3">
-						<!-------- PLAATJE
-						<img ng-src="img/weather-icons/{{now.weather[0].icon}}.png"> -->
+						<!-- <img ng-src="img/weather-icons/{{now.weather[0].icon}}.png"> -->
 						<owm-icon id="{{condition.id}}" class="current_weather_icon"></owm-icon>
 					</div>
 				</div>
 
 				<div class="row">
+					<!-- Beschrijving -->
 					<div class="col-md-12 weather_beschrijving">
 						{{now.weather[0].description}}
 					</div>
+					
+					<!-- Details van vandaag -->
+					<div class="col-md-12">
+						<h2>Vandaag:</h2>
+						Datum: {{now.dt * 1000 | date:'dd MMMM yyyy'}} <br>
+						Wolken: {{now.clouds.all}}% <br>
+						temp_min: {{now.main.temp_min}}&deg; <br>
+						temp_min: {{now.main.temp_max}}&deg; <br>
+					</div >
+
 				</div>
-
-				<!-- NOW VALUES -->
-				<!--
-				<span ng-repeat="(key, value) in now">
-					{{key}} - {{value}} <br>
-				</span>
-				-->
-				<li ng-repeat="(listkey, listarray) in weather16.list[0]">
-					{{listkey}} - {{listarray}}
-				</li>
-
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2 container-forecast background-blur ">
 				<h1>Voorspelling</h1> 
-
-
-				<!-- weather5 = 5d / 3h -->
-				<!--
-				<ul>
-					<li ng-repeat="(listkey, listarray) in weather5.list">
-						<ul>
-							<li ng-repeat="(item, value) in weather5.list[listkey]">
-
-								{{item}} - {{value}}
-							</li>
-						</ul>
-					</li>
-				</ul>
-				-->
-
 				<!-- weather16 = -->
-				<ul>
-					<!-- total list -->
-					<!--
-					<li ng-repeat="(listkey, listarray) in weather16">
-						{{listkey}} - {{listarray}}
-					</li>
-					-->
-
-					<li ng-repeat="(listkey, listarray) in weather16.list[0]">
-						{{listkey}} - {{listarray}}
-					</li>
-				</ul>
-				
-		
+				<div class="forecast_week" ng-repeat="day in weather16.list" ng-if="$index > 0">
+					Datum: {{day.dt * 1000 | date:'dd MMMM yyyy'}} <br>
+					Wolken: {{day.clouds}}% <br>
+					Overdag: {{day.temp.day}}&deg; <br>
+					Beschrijving: {{day.weather[0].description}} <br>
+					Icon: <owm-icon id="{{day.weather[0].id}}"></owm-icon>
+				</div>
 			</div>
 		</div>
+
+		<!-- weather5 = 5d / 3h -->
+		<!--
+		<ul>
+			<li ng-repeat="(listkey, listarray) in weather5.list">
+				<ul>
+					<li ng-repeat="(item, value) in weather5.list[listkey]">
+
+						{{item}} - {{value}}
+					</li>
+				</ul>
+			</li>
+		</ul>
+		-->
 
 	</div>
 </body>

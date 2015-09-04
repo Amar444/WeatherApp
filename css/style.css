@@ -54,3 +54,7 @@ body {
 .container-forecast {
 	margin-top:20px;
 }
+
+.forecast_week {
+	margin-bottom:10px;
+}
