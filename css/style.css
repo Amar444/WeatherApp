@@ -33,7 +33,7 @@ p:first-letter {
 /********** CURRENT **********/
 /****************************/
 .container-current {
-	margin-top:100px;
+	margin-top:50px;
 }
 
 .current_temp {
@@ -49,6 +49,10 @@ p:first-letter {
 }
 .weather_beschrijving:first-letter {
 	text-transform: uppercase;
+}
+
+.now-details {
+	line-height:20px;
 }
 
 

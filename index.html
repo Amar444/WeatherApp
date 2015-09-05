@@ -30,35 +30,38 @@
 
 				<div class="row">
 					<!-- Huidige temp -->
-					<div class="col-sm-6 current_temp ">
-						{{now.main.temp | number:1}}&deg; 
-					</div>
-
-					<!-- Grote icon-->
-					<div class="col-sm-3 col-sm-offset-3">
-						<!-- <img ng-src="img/weather-icons/{{now.weather[0].icon}}.png"> -->
+					<div class="col-sm-8 current_temp ">
+						{{now.main.temp | number:1}}&deg;  
 						<owm-icon id="{{now.weather[0].id}}" class="current_weather_icon"></owm-icon>
 					</div>
+
+					<!-- Details van nu -->
+					<div class="col-sm-4 now-details">
+						<h2>Details</h2>
+						Luchtvochtigheid: {{now.main.humidity}}% <br>
+						Wolken: {{now.clouds.all}}% <br>
+						Min temp: {{now.main.temp_min}}&deg; <br>
+						Max temp: {{now.main.temp_max}}&deg; <br>
+					</div >
 				</div>
 
 				<div class="row">
 					<!-- Beschrijving -->
 					<div class="col-sm-12 weather_beschrijving">
 						{{now.weather[0].description}} <br>
-						
+						<hr>
 					</div>
-					
-					<!-- Details van nu -->
-					<div class="col-sm-12">
-						Luchtvochtigheid: {{now.main.humidity}}% <br>
-						Wolken: {{now.clouds.all}}% <br>
-						Min temp: {{now.main.temp_min}}&deg; <br>
-						Max temp: {{now.main.temp_max}}&deg; <br>
-					</div >
 
 					<!-- Details van komende uren -->
 					<div class="col-sm-12">
-						
+						<div class="forecast_week col-xs-2"  ng-repeat="(listkey, listarray) in weather5.list | limitTo:6">
+							<div ng-init="hourlyforecast = weather5.list[listkey]">
+								<p><b>{{hourlyforecast.dt * 1000 | date:'HH:mm'}} </b></p>
+								<p><owm-icon id="{{hourlyforecast.weather[0].id}}"></owm-icon> </p>
+								<p>{{hourlyforecast.main.temp | number:0}}&deg; </p>
+								<p>{{hourlyforecast.weather[0].description}} </p>
+							</div>
+						</div>
 					</div >
 
 				</div>
