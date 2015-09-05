@@ -20,40 +20,45 @@
 	<div class="container" ng-controller="weatherCtrl">
 
 		<div class="row">
-			<div class="col-md-8 col-md-offset-2 container-current background-blur ">
+			<div class="col-sm-8 col-sm-offset-2 container-current background-blur container-border">
 
 				<div class="row">
-					<div class="col-md-12">
+					<div class="col-sm-12">
 						<h1>Weer in <b>{{now.name}}, {{now.sys.country}}</b></h1> 
 					</div>
 				</div>
 
 				<div class="row">
 					<!-- Huidige temp -->
-					<div class="col-md-6 current_temp ">
+					<div class="col-sm-6 current_temp ">
 						{{now.main.temp | number:1}}&deg; 
 					</div>
 
 					<!-- Grote icon-->
-					<div class="col-md-3 col-md-offset-3">
+					<div class="col-sm-3 col-sm-offset-3">
 						<!-- <img ng-src="img/weather-icons/{{now.weather[0].icon}}.png"> -->
-						<owm-icon id="{{condition.id}}" class="current_weather_icon"></owm-icon>
+						<owm-icon id="{{now.weather[0].id}}" class="current_weather_icon"></owm-icon>
 					</div>
 				</div>
 
 				<div class="row">
 					<!-- Beschrijving -->
-					<div class="col-md-12 weather_beschrijving">
-						{{now.weather[0].description}}
+					<div class="col-sm-12 weather_beschrijving">
+						{{now.weather[0].description}} <br>
+						
 					</div>
 					
-					<!-- Details van vandaag -->
-					<div class="col-md-12">
-						<h2>Vandaag:</h2>
-						Datum: {{now.dt * 1000 | date:'dd MMMM yyyy'}} <br>
+					<!-- Details van nu -->
+					<div class="col-sm-12">
+						Luchtvochtigheid: {{now.main.humidity}}% <br>
 						Wolken: {{now.clouds.all}}% <br>
-						temp_min: {{now.main.temp_min}}&deg; <br>
-						temp_min: {{now.main.temp_max}}&deg; <br>
+						Min temp: {{now.main.temp_min}}&deg; <br>
+						Max temp: {{now.main.temp_max}}&deg; <br>
+					</div >
+
+					<!-- Details van komende uren -->
+					<div class="col-sm-12">
+						
 					</div >
 
 				</div>
@@ -61,15 +66,14 @@
 		</div>
 
 		<div class="row">
-			<div class="col-md-8 col-md-offset-2 container-forecast background-blur ">
-				<h1>Voorspelling</h1> 
+			<div class="col-sm-8 col-sm-offset-2 container-forecast background-blur container-border">
+				<h2>Voorspelling</h2> 
 				<!-- weather16 = -->
-				<div class="forecast_week" ng-repeat="day in weather16.list" ng-if="$index > 0">
-					Datum: {{day.dt * 1000 | date:'dd MMMM yyyy'}} <br>
-					Wolken: {{day.clouds}}% <br>
-					Overdag: {{day.temp.day}}&deg; <br>
-					Beschrijving: {{day.weather[0].description}} <br>
-					Icon: <owm-icon id="{{day.weather[0].id}}"></owm-icon>
+				<div class="forecast_week col-xs-2 " ng-repeat="day in weather16.list | limitTo:7" ng-if="$index > 0">
+					<p><b>{{day.dt * 1000 | date:'EEEE d'}} </b></p>
+					<p><owm-icon id="{{day.weather[0].id}}"></owm-icon> </p>
+					<p>{{day.temp.day | number:0}}&deg; </p>
+					<p>{{day.weather[0].description}} </p>
 				</div>
 			</div>
 		</div>
@@ -77,10 +81,9 @@
 		<!-- weather5 = 5d / 3h -->
 		<!--
 		<ul>
-			<li ng-repeat="(listkey, listarray) in weather5.list">
+			<li ng-repeat="(listkey, listarray) in weather5.list"  ng-if="$index > 0">
 				<ul>
 					<li ng-repeat="(item, value) in weather5.list[listkey]">
-
 						{{item}} - {{value}}
 					</li>
 				</ul>
