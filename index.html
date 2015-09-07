@@ -56,6 +56,7 @@
 					<div class="col-sm-12">
 						<div class="forecast_week col-xs-2"  ng-repeat="(listkey, listarray) in weather5.list | limitTo:6">
 							<div ng-init="hourlyforecast = weather5.list[listkey]">
+								<!-- TIJD KLOPT NOG NIET -->
 								<p><b>{{hourlyforecast.dt * 1000 | date:'HH:mm'}} </b></p>
 								<p><owm-icon id="{{hourlyforecast.weather[0].id}}"></owm-icon> </p>
 								<p>{{hourlyforecast.main.temp | number:0}}&deg; </p>
